@@ -1,15 +1,15 @@
 require "set"
 def length_of_longest_substring(s)
   seen = Set.new
-  max_length = 0
   left = 0
-  s.chars.each_with_index do |char, right|
+  max_length = 0
+  s.chars.each_with_index do |char, i|
     while seen.include?(char)
       seen.delete(char)
       left += 1
     end
     seen.add(char)
-    max_length = [max_length, right - left + 1].max
+    max_length = [max_length, i - left + 1].max
   end
   return max_length, seen
 end
