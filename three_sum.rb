@@ -1,8 +1,9 @@
 def three_sum(nums)
+  nums.sort!
   result = []
 
   (0...nums.length).each do |i|
-    next if i > 0 && nums[i - 1] == nums[i]
+    next if i > 0 && nums[i-1] == nums[i]
 
     left = i + 1
     right = nums.length - 1
@@ -10,12 +11,10 @@ def three_sum(nums)
       sum = nums[i] + nums[left] + nums[right]
       if sum == 0
         result << [nums[i], nums[left], nums[right]]
-
         left += 1
         right -= 1
         left += 1 while left < right && nums[left - 1] == nums[left]
-
-        right -= 1 while left < right & nums[right] == nums[right + 1]
+        right -= 1 while left < right && nums[right] == nums[right+1]
       elsif sum < 0
         left += 1
       else
@@ -26,4 +25,4 @@ def three_sum(nums)
   result
 end
 
-puts three_sum([-4, -1, 1, 3, 5]).inspect
+puts three_sum([-4, -1, 1, 3, 5]).inspect # => [[-4, -1, 5], [-4, 1, 3]]

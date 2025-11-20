@@ -1,13 +1,11 @@
 def move_zeroes(nums)
-  # move non-zero to front
   write = 0
-  nums.each_with_index do |num, _index|
-    if num != 0
-      nums[write] = num
+  (0...nums.length).each do |i|
+    if nums[i] != 0
+      nums[write] = nums[i]
       write += 1
     end
   end
-
   while write < nums.length
     nums[write] = 0
     write += 1
