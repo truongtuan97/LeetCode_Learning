@@ -1,16 +1,12 @@
 def max_profit(prices)
-  return 0 if prices.empty?
-
-  min_price = prices[0]
   max_profit = 0
+  min_price = Float::INFINITY
 
   prices.each do |price|
-    if price < min_price
+    if min_price >= price
       min_price = price
-    else
-      profit = price - min_price
-      max_profit = [max_profit, profit].max
     end
+    max_profit = [max_profit, price - min_price].max
   end
   max_profit
 end

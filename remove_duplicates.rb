@@ -1,14 +1,14 @@
 def remove_duplicates(nums)
-  return 0 if nums.empty?
-
   slow = 0
-  (1...nums.length).each do |fast|
-    if nums[fast] != nums[slow]
+  (0...nums.length).each do |i|
+    if nums[i] != nums[slow]
       slow += 1
-      nums[slow] = nums[fast]
+      nums[slow] = nums[i]
     end
   end
-  [slow + 1, nums]
+  slow += 1
+  return slow, nums
 end
 
-puts remove_duplicates([0, 1, 1, 2, 3, 3]).inspect
+slow = remove_duplicates([0, 1, 1, 2, 3, 3])
+puts "Length after removing duplicates: #{slow}"
