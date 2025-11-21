@@ -1,8 +1,7 @@
 def max_sub_array(nums)
-  cur_sum, max_sum = 0, 0
-  start_index, temp_index, end_index = 0, 0, 0
-
-  (0...nums.length).each do |i|
+  cur_sum, max_sum = nums[0], nums[0]
+  start_index, temp_index, end_index = 0,0,0
+  (1...nums.length).each do |i|
     if nums[i] > cur_sum + nums[i]
       cur_sum = nums[i]
       temp_index = i
