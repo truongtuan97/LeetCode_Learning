@@ -1,7 +1,6 @@
 def group_anagrams(strs)
   groups = Hash.new { |h, k| h[k] = [] }
-
-  strs.each do |word|
+  strs.each_with_index do |word, index|
     key = word.chars.sort.join
     groups[key] << word
   end

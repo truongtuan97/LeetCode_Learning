@@ -1,15 +1,15 @@
 def product_except_self(nums)
   answer = Array.new(nums.length, 1)
-  prefix, suffix = 1, 1
+  subfix, prefix = 1, 1
 
-  (0...nums.length).each do |i|
-    answer[i] = prefix
-    prefix *= nums[i]
+  (0...nums.length).each do |index|
+    answer[index] = prefix
+    prefix *= nums[index]
   end
-  puts answer.inspect
-  (nums.length - 1).downto(0) do |i|
-    answer[i] *= suffix
-    suffix *= nums[i]
+
+  (nums.length - 1).downto(0) do |index|
+    answer[index] *= subfix
+    subfix *= nums[index]
   end
   answer
 end

@@ -1,28 +1,27 @@
 def longest_palindrome(s)
-  max_len = 0
-  index = 0
+  max_length = 0
+  start = 0
   (0...s.length).each do |i|
     l1, r1 = expand(s, i, i)
-    if max_len < r1-l1+1
-      max_len = r1-l1+1
-      index = l1
+    if r1 - l1 + 1 > max_length
+      start, max_length = l1, r1 - l1 + 1
     end
 
     l2, r2 = expand(s, i, i+1)
-    if max_len < r2-l2+1
-      max_len = r2-l2+1
-      index = l2
+    if r2 - l2 + 1 > max_length
+      start, max_length = l1, r2 - l2 + 1
     end
   end
-  s[index, max_len]
+  s[start, max_length]
 end
 
 def expand(s, left, right)
-  while left > 0 && right < s.length && s[left] == s[right]
+  while left >=0 && right < s.length && s[left] == s[right]
     left -= 1
     right += 1
   end
-  return left + 1, right - 1
+  [left + 1, right - 1]
 end
+
 puts longest_palindrome("babad") # => "bab" hoặc "aba"
 puts longest_palindrome("cbbd")  # => "bb"

@@ -1,7 +1,6 @@
 def three_sum(nums)
-  nums.sort!
   result = []
-
+  nums.sort!
   (0...nums.length).each do |i|
     next if i > 0 && nums[i-1] == nums[i]
     left = i + 1
@@ -10,13 +9,10 @@ def three_sum(nums)
       sum = nums[i] + nums[left] + nums[right]
       if sum == 0
         result << [nums[i], nums[left], nums[right]]
-        left += 1 while left < right && nums[left] == nums[left - 1]
-        right -= 1 while left < right && nums[right] == nums[right + 1]
-        if nums[left] < nums[right]
-          left += 1
-        else
-          right -= 1
-        end
+        left += 1
+        right -= 1
+        left += 1 while left < right && nums[left - 1] == nums[left]
+        right -= 1 while left < right && nums[right] == nums[right+1]
       elsif sum < 0
         left += 1
       else
