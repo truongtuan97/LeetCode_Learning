@@ -6,6 +6,7 @@ def move_zeroes(nums)
       write += 1
     end
   end
+
   while write < nums.length
     nums[write] = 0
     write += 1
@@ -13,4 +14,4 @@ def move_zeroes(nums)
   nums
 end
 
-puts move_zeroes([0, 1, 0, 3, 12]).inspect
+puts move_zeroes([0, 1, 0, 3, 12]).inspect # => [1,3,12,0,0]

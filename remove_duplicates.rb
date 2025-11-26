@@ -1,14 +1,14 @@
 def remove_duplicates(nums)
-  slow = 0
+  write = 0
   (0...nums.length).each do |i|
-    if nums[i] != nums[slow]
-      slow += 1
-      nums[slow] = nums[i]
+    if nums[i] != nums[write]
+      nums[write] = nums[i]
+      write += 1
     end
   end
-  slow += 1
-  return slow, nums
+  return write, nums
 end
 
-slow = remove_duplicates([0, 1, 1, 2, 3, 3])
+slow, nums = remove_duplicates([0, 1, 1, 2, 3, 3])
 puts "Length after removing duplicates: #{slow}"
+puts "Array after removing duplicates: #{nums.inspect}"

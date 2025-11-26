@@ -6,7 +6,7 @@ def rotate(nums, k)
 end
 
 def reverse(nums, start_index, end_index)
-  left, right = start_index, end_index
+  left, right = start_index, end_index  
   while left < right
     nums[left], nums[right] = nums[right], nums[left]
     left += 1
@@ -14,4 +14,4 @@ def reverse(nums, start_index, end_index)
   end
 end
 
-puts rotate([1,2,3,4,5,6,7], 3).inspect
+puts rotate([1,2,3,4,5,6,7], 3).inspect # => [5, 6, 7, 1, 2, 3, 4]
