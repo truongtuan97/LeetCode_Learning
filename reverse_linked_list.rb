@@ -1,3 +1,4 @@
+require_relative "print_linked_list_util"
 class ListNode
   attr_accessor :val, :next
   def initialize(val = 0, nxt = nil)
@@ -16,15 +17,6 @@ def reverse(head)
     curr = nxt
   end
   prev
-end
-
-def print_list(head)
-  curr = head
-  while curr
-    print "#{curr.val} -> "
-    curr = curr.next
-  end
-  puts "nil"
 end
 
 head = ListNode.new(1)
