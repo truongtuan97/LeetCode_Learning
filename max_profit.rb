@@ -1,11 +1,12 @@
 def max_profit(prices)
   max_profit = 0
   min_price = prices[0]
-  prices.each_with_index do |price, index|
-    if price < min_price
-      min_price = price
+
+  (1...prices.size).each do |i|
+    if min_price > prices[i]
+      min_price = prices[i]
     end
-    max_profit = [max_profit, price - min_price].max
+    max_profit = [max_profit, prices[i] - min_price].max
   end
   max_profit
 end

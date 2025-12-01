@@ -1,10 +1,11 @@
 def two_sum(nums, target)
   hash = {}
-  nums.each_with_index do |num, index|
-    if hash.key?(target - num)
-      return [hash[target - num], index]
+
+  nums.each_with_index do |num, i|
+    if hash.keys.include?(target - num)
+      return [hash[target - num], i]
     end
-    hash[num] = index
+    hash[num] = i
   end
   []
 end

@@ -1,12 +1,12 @@
 def remove_duplicates(nums)
   write = 0
-  nums.each_with_index do |num, index|
-    if num != nums[write]      
+  (1...nums.size).each do |i|
+    if nums[write] != nums[i]
       write += 1
-      nums[write] = num
+      nums[write] = nums[i]
     end
   end
-  return write, nums
+  return write+1, nums
 end
 
 slow, nums = remove_duplicates([0, 1, 1, 2, 3, 3])

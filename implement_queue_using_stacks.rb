@@ -17,13 +17,12 @@ class MyQueue
     shift_stack
     @out_stack[-1]
   end
-  
+
   def empty
     @in_stack.empty? && @out_stack.empty?
   end
 
-  private
-
+  private 
   def shift_stack
     if @out_stack.empty?
       while !@in_stack.empty?

@@ -6,17 +6,16 @@ class MinStack
 
   def push(x)
     @stack.push(x)
-    if @min_stack.empty? || x <= @min_stack[-1]
-      @min_stack.push(x)
+    if @min_stack.empty? || x < @min_stack[-1]
+      @min_stack.push(x)    
     end
   end
 
-  def pop()
+  def pop
     val = @stack.pop
     if val == @min_stack[-1]
       @min_stack.pop
     end
-    val
   end
 
   def top

@@ -1,22 +1,23 @@
 def eval_rpn(tokens)
   stack = []
   operators = ["+", "-", "*", "/"]
+
   tokens.each do |token|
     if operators.include?(token)
       b = stack.pop
       a = stack.pop
       result = case token
-              when "+" then a + b
-              when "-" then a - b
-              when "*" then a * b
-              when "/" then (a.to_f / b).truncate
-      end
+                when "+" then a + b
+                when "-" then a - b
+                when "*" then a * b
+                when "/" then (a.to_f / b).truncate
+              end
       stack.push(result)
     else
       stack.push(token.to_i)
     end
   end
-  return stack[0]
+  stack[0]
 end
 
 puts eval_rpn(["2", "1", "+", "3", "*"])       # => 9

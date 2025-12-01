@@ -1,14 +1,22 @@
 def move_zeroes(nums)
+  # left = 0
+
+  # (0...nums.size).each do |right|
+  #   if nums[right] != 0
+  #     nums[left], nums[right] = nums[right], nums[left]
+  #     left += 1
+  #   end
+  # end
+  # nums
   write = 0
-  (0...nums.length).each do |index|
-    if nums[index] != 0
-      nums[write] = nums[index]
+  (0...nums.size).each do |i|
+    if nums[i] != 0
+      nums[write] = nums[i]
       write += 1
     end
   end
-  while write < nums.length
-    nums[write] = 0
-    write += 1
+  (write...nums.size).each do |i|
+    nums[i] = 0
   end
   nums
 end
