@@ -1,6 +1,8 @@
 def sub_str(haystack, needle)
-  (0...haystack.length - needle.length).each do |index|
-    return index if haystack[index, needle.length] == needle 
+  (0...haystack.size - needle.size).each do |i|
+    if haystack[i,needle.size] == needle
+      return i
+    end
   end
   -1
 end

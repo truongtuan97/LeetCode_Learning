@@ -1,11 +1,8 @@
 def is_palindrome(s)
   filtered = s.downcase.gsub(/[^0-9a-z]/, '')
-  left, right = 0, filtered.length - 1
-  
+  left, right = 0, filtered.size - 1
   while left < right
-    if filtered[left] != filtered[right]
-      return false 
-    end
+    return false if filtered[left] != filtered[right]
     left += 1
     right -= 1
   end

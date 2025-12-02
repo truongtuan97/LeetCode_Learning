@@ -1,6 +1,8 @@
 def trap(height)
-  left, right = 0, height.length - 1
-  max_left, max_right, water = 0, 0, 0
+  max_left, max_right = 0, 0
+  left, right = 0, height.size - 1
+  water = 0
+
   while left < right
     if height[left] < height[right]
       max_left = [max_left, height[left]].max

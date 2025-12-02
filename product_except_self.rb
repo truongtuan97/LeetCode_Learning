@@ -1,17 +1,17 @@
+# giai thuat: tich cac phan tu ben trai * tich cac phan tu ben phai
 def product_except_self(nums)
-  answer = Array.new(nums.length, 1)
-  subfix, prefix = 1, 1
-
-  (0...nums.length).each do |index|
-    answer[index] = prefix
-    prefix *= nums[index]
+  results = Array.new(nums.size, 1)
+  left, right = 1, 1
+  (0...nums.size).each do |i|
+    results[i] = left
+    left *= nums[i]
   end
-
-  (nums.length - 1).downto(0) do |index|
-    answer[index] *= subfix
-    subfix *= nums[index]
+  (nums.size - 1).downto(0) do |i|
+    results[i] *= right
+    right *= nums[i]
   end
-  answer
+  results
 end
 
 puts product_except_self([1, 2, 3, 4]).inspect # => [24, 12, 8, 6]
+puts product_except_self([1, 0, 3, 4]).inspect  # [0, 12, 4, 3]
