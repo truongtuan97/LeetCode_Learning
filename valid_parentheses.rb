@@ -1,7 +1,6 @@
 def is_valid(s)
   stack = []
   mapping = { '{' => '}', '[' => ']', '(' => ')' }
-
   s.each_char do |char|
     if mapping.keys.include?(char)
       stack.push(char)
